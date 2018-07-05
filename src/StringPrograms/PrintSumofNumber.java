@@ -10,7 +10,8 @@ public class PrintSumofNumber {
 	public static void main(String[] args) {
 		//sumofdigits();
 		//sumofNumbers();
-		wordOccurence();
+		//wordOccurence();
+		stringReverse();
 	}
 	//This Program is to print sum of numbers in given string
 	private static void sumofdigits() {
@@ -60,4 +61,21 @@ public class PrintSumofNumber {
 		}
 		System.out.println(ls);
 	}
+	
+	//String Reverse using Recursive
+	public static void stringReverse() {
+		String s ="Test this";
+		
+		System.out.println(reverseRecursive(s));
+	}
+	
+	static String reverseRecursive(String s){
+		if(s.length()==0 || s.length()==0 ) {
+			return s;
+		}else {
+			return reverseRecursive(s.substring(1))+s.charAt(0);
+		}
+		
+	}
+	
 }
