@@ -7,12 +7,12 @@ public class ComparatorExample {
 
 @SuppressWarnings("unchecked")
 public static void main(String[] args) {
-	List<Country> countrylist = new ArrayList();
+	List<Country> countrylist = new ArrayList<Country>();
 	countrylist.add(new Country("ab", 12));
 	countrylist.add(new Country("Pakistan", 13));
 	countrylist.add(new Country("India", 13));
 	
-	Comparator comperatorTest = new Comparator<Country>() {
+	Comparator<Country> comperatorTest = new Comparator<Country>() {
 		@Override
 		public int compare(Country o1, Country o2) {
 		return o1.getName().compareTo(o2.getName());

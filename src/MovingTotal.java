@@ -4,7 +4,7 @@ public class MovingTotal {
 	/**
 	 * Adds/appends list of integers at the end of internal list.
 	 */
-	LinkedList<Integer> myList = new LinkedList();
+	LinkedList<Integer> myList = new LinkedList<Integer>();
 
 	public void append(int[] list) {
 

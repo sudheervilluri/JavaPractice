@@ -31,7 +31,7 @@ public class HasMapExample {
 	countrylist.put(new Country("ab", 12), 1);
 	countrylist.put(new Country("Pakistan", 13), 2);
 	countrylist.put(new Country("India", 13), 2);
-for (Iterator iterator = countrylist.entrySet().iterator(); iterator.hasNext();) {
+for (Iterator<?> iterator = countrylist.entrySet().iterator(); iterator.hasNext();) {
 	Map.Entry type =  (Map.Entry) iterator.next();
 	
 	System.out.println(type.getValue() + " " +(Country)type.getKey());
@@ -41,7 +41,7 @@ for (Iterator iterator = countrylist.entrySet().iterator(); iterator.hasNext();)
 	Map<String,Integer> intlist = new HashMap<>();
 	intlist.put("1", 2);
 	intlist.put("2", 2);
-	for (Iterator iterator = intlist.entrySet().iterator(); iterator.hasNext();) {
+	for (Iterator<?> iterator = intlist.entrySet().iterator(); iterator.hasNext();) {
 		Map.Entry type =  (Map.Entry) iterator.next();
 		System.out.println(type.hashCode());
 	}

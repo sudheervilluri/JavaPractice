@@ -15,7 +15,7 @@ public static void main(String[] args) {
      list.put(france,"Paris");
      list.put(russia,"Moscow");
 	
-	Iterator itr = list.keySet().iterator();
+	Iterator<Country> itr = list.keySet().iterator();
 	while(itr.hasNext()) {
 		 Country countryObj=(Country) itr.next();
          String capital=list.get(countryObj);
@@ -24,7 +24,7 @@ public static void main(String[] args) {
        
 	}
 	for(Map.Entry<Country, String> m : list.entrySet()) {
-		linked
+		
 	}
 	
 }

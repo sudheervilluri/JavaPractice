@@ -3,7 +3,7 @@ import java.util.concurrent.BlockingQueue;
 
 public class BlockingQueueExample {
 public static void main(String[] args) {
-	BlockingQueue blockingQueue = new ArrayBlockingQueue<>(10);
+	BlockingQueue<Object> blockingQueue = new ArrayBlockingQueue<>(10);
 	ThreadClass2 td = new ThreadClass2("test", blockingQueue);
 	Thread td2 = new Thread(td);
 	td2.start();
@@ -14,9 +14,9 @@ public static void main(String[] args) {
 class ThreadClass2 implements Runnable{
 
 	private String value ;
-	private BlockingQueue blockingQueue =null;
+	private BlockingQueue<Object> blockingQueue =null;
 	
-	public ThreadClass2(String value,BlockingQueue blockingQueue) {
+	public ThreadClass2(String value,BlockingQueue<Object> blockingQueue) {
 		this.value = value;
 		this.blockingQueue = blockingQueue;
 	}

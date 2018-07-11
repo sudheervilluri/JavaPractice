@@ -69,12 +69,12 @@ public class LinkedList {
 //		
 
 	//	LinkedList l = new LinkedList();
-		ArrayList g = new ArrayList<>();
+		ArrayList<Object> g = new ArrayList<>();
 		
 		g.add("test");
 		g.add("test2");
 		g.add("test3");
-		ListIterator f = g.listIterator();
+		ListIterator<Object> f = g.listIterator();
 		while(f.hasNext()) {
 		
 			System.out.println(f.next());
