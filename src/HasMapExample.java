@@ -34,19 +34,27 @@ public class HasMapExample {
 for (Iterator<?> iterator = countrylist.entrySet().iterator(); iterator.hasNext();) {
 	Map.Entry type =  (Map.Entry) iterator.next();
 	
-	System.out.println(type.getValue() + " " +(Country)type.getKey());
+//	System.out.println(type.getValue() + " " +(Country)type.getKey());
 	
 }
 
 	Map<String,Integer> intlist = new HashMap<>();
-	intlist.put("1", 2);
+	intlist.put("1", 1);
+	intlist.put("1", 3);
 	intlist.put("2", 2);
 	for (Iterator<?> iterator = intlist.entrySet().iterator(); iterator.hasNext();) {
 		Map.Entry type =  (Map.Entry) iterator.next();
-		System.out.println(type.hashCode());
+	//	System.out.println(type.hashCode());
+	}
+
+	for(Map.Entry<String, Integer> value : intlist.entrySet()) {
+		System.out.println(value.getValue());
+	}
+	for(String s : intlist.keySet()) {
+		
 	}
 	
-	System.out.println(Objects.hashCode(1)  ^ Objects.hashCode(2));
+	//System.out.println(Objects.hashCode(1)  ^ Objects.hashCode(2));
 	
 
 
