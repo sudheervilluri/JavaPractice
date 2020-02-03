@@ -1,0 +1,215 @@
+type Query {
+  queues (queueName: String=null): [Queue]
+  controlRecord: ControlRecord
+  streams: [Stream]
+  potentialPredecessors (streamName: String!): [Stream]
+  jobTypes (id: String=null): [JobType]
+  potentialJobPredecessors (streamName: String!, jobName: String!): [Job]
+  refreshScheduler: Boolean!
+  olapCube: [OlapCube]
+  clusters: [Cluster]
+  crystalReport: [CrystalReport] 
+  transactionType(format: String!): [TransactionType]
+  nullCharacterOrNotValued: [NullCharacterOrNotValued]
+  storedProcedureObjectName: [StoredProcedure]
+  storedProcedureParameters(objectId: Int!, objectName: String!): [StoredProcedureParameters]
+  jobDetails(streamName: String!, jobName:String!): [JobDetails]
+}
+
+type StoredProcedureParameters{
+  parameterName: String!
+  prompt: String!
+  defaultValue: String!
+}
+
+type StoredProcedure{
+  objectName: String!
+  objectId: Int!
+}
+
+type NullCharacterOrNotValued {
+  nullCharOrNotValued: String
+}
+
+type TransactionType {
+  id: String!
+  caption: String!
+}
+
+type JobType {
+  id: String!
+  name: String!
+  details: JobDetail
+  parameters: [JobParameter]
+}
+
+type JobDetail {
+  caption: String
+  parameterIdentifier: String
+  parameterSeparator: String
+  parameterQuoteCharacter: String
+  translateParameterSeparatorToSpace: String
+  translateQuoteCharacter: String
+  prefixIdentifier: String
+  helpContextID: String
+  parameterHelpID: String
+}
+
+type JobParameter {
+  name: String!
+  details : ParamaterDetail
+}
+
+type ParamaterDetail {
+  visible: String 
+  defaultValue: String 
+  required: String 
+  cellType: String
+  prefix: String 
+  encloseInQuotes: String 
+  overviewOrder: String 
+  maxLength: String  
+  max: String
+  spinWrap: String
+  password: String 
+  caseValue: String
+  allowSpaces: String
+}
+
+type ControlRecord {
+  currentSchedulerDate: String!
+  sleepInterval: Int!
+  lastMaintenanceDateTime: String!
+  checkpointDirectoryPath: String!
+  schedulerLogFilePath: String!
+  taskFilePath: String!
+  notificationFilePath: String!
+}
+
+type Stream {
+  queueName: String!
+  streamName: String!
+  streamDescription: String!
+  streamStatus: String!
+  streamFinishedDateTime: String!
+  jobs(jobName: String=null): [Job]
+  scheduleInfo: ScheduleInfo
+  notifications: [Notification]
+  predecessors: [Predecessor]
+}
+
+type ScheduleInfo {
+  nextOccurrence: String
+  scheduleOccurrence: [ScheduleOccurrence]
+}
+
+type ScheduleOccurrence {
+  baseInfo: SchedBaseInfo
+  dailyInfo: SchedDaily
+  weeklyInfo: SchedWeekly
+  monthlyInfo: SchedMonthly
+}
+
+type SchedBaseInfo {
+  occurrence: String
+  frequency: String
+  forceExecution: String
+  scheduleActive: String
+  dateAndTime: DateAndTime
+}
+
+type SchedDaily {
+  everyNDays: String
+}
+
+type SchedWeekly {
+  runWeekDays(isSelected: String = null): [WeekDay]
+  everyNWeeks: String
+}
+
+type SchedMonthly {
+  monthlyScheduleType: String
+  monthlyScheduleEvent: String
+  monthlyScheduleEventDay: String
+  dayOfTheMonth: String
+  monthMask(isSelected: String = null): [Month]
+}
+
+type WeekDay {
+  name: String
+  isSelected: String
+}
+
+type Month {
+  name: String
+  isSelected: String
+}
+
+type DateAndTime {
+  earliestStartTime: String
+  latestStartTime: String
+  lastActualStartTime: String
+  lastActualEndTime: String
+  baseDate: String
+}
+
+type Job {
+  jobName: String!
+  description: String!
+  finishedDateTime: String!
+  jobStatus: String!
+  predecessors: [Predecessor]
+  notifications: [Notification]
+  jobDefinition: JobDefinition
+  executionHistory: [ExecutionHistory]
+  scheduleInfo: ScheduleInfo
+}
+
+type JobDefinition {
+  databaseName: String!
+  dbServerName: String!
+  jobType: String
+  jobDetails: [JobDetails]
+}
+
+type JobDetails {
+  parameter: JobParameter
+  value: String
+}
+
+type ExecutionHistory {
+  executionStart: String
+  executionEnd: String
+  status: String
+}
+
+type Queue {
+  queueName: String!
+  streams(streamName: String = null): [Stream]
+  queueDescription: String!
+  jobLimit: String!
+}
+
+type Notification {
+  streamOrJobName: String!
+  eventType: String!
+  enabled: String!
+  emailAddress: String!
+}
+
+type Predecessor {
+  streamOrJobName: String!
+}
+
+type OlapCube {
+  cubeName: String!
+  databaseName: String!
+}
+type Cluster {
+  id: String!
+  name: String!
+}
+type CrystalReport {
+  name: String!
+  crystalReportArticleId: String!
+}
