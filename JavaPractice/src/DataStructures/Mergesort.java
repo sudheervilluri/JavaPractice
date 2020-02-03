@@ -8,8 +8,7 @@ public class Mergesort {
     void merge(int arr[], int l, int m, int r) 
     { 
         // Find sizes of two subarrays to be merged 
-
-    	int n1 = m - l + 1; 
+        int n1 = m - l + 1; 
         int n2 = r - m; 
   
         /* Create temp arrays */
