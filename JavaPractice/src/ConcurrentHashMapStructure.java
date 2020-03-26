@@ -1,7 +1,5 @@
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ConcurrentHashMapStructure {
@@ -26,6 +24,6 @@ public static void main(String[] args) {
 	for(Map.Entry<Country, String> m : list.entrySet()) {
 		
 	}
-	
+
 }
 }
