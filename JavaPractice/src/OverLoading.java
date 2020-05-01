@@ -14,6 +14,10 @@ class Addition {
 		return (int) (a+b);
 	}
 	
+	public String add(int hello) {
+		return "";
+	}
+	
 	//Same arg cannot have diff return type
 	public double add(int a,double b) {
 		return a+b;
@@ -28,7 +32,7 @@ class OverLoading {
 
 		int sum1 = ob.add(1, 2);
 		System.out.println("sum of the two integer value :" + sum1);
-		int sum2 = ob.add(1, 2, 3);
+		int sum2 = ob.add(1, 2);
 		System.out.println("sum of the three integer value :" + sum2);
 
 		String test = ob.add("Sudheer","Villuri");
